@@ -1,0 +1,13 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Run Cloud Incident Reporter",
+			"type": "shell",
+			"command": "& 'd:/5th Sem CC Project/.venv/Scripts/python.exe' app.py",
+			"isBackground": true,
+			"problemMatcher": [],
+			"group": "build"
+		}
+	]
+}
