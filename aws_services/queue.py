@@ -10,8 +10,18 @@ logger = logging.getLogger(__name__)
 
 
 def _sqs_client():
-    return boto3.client("sqs", region_name=os.getenv("AWS_REGION", "us-east-1"),
-                        config=Config(connect_timeout=2, read_timeout=4, retries={"max_attempts": 1}))
+    return boto3.client(
+        "sqs",
+        region_name=os.getenv("AWS_REGION", "ap-southeast-2"),
+        config=Config(
+            connect_timeout=5,
+            read_timeout=25,
+            retries={
+                "max_attempts": 3,
+                "mode": "standard"
+            }
+        )
+    )
 
 
 def enqueue_incident(incident):
